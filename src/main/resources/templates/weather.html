@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's weather</title>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+    </style>
+    </head>
+<body>
+    
+    <h1>Today's weather</h1>
+    <table th:object="${weather}">
+        <!-- <tr th:each="image : ${imageList}">
+            <td th:text="${image.title}"></td>
+            <td><img th:src="${image.url}"></td>
+        </tr> -->
+        <tr>
+            <th><h2 >Weather for <span th:text="*{city}"></span></h2></th>
+           
+    </tr>
+    <tr>
+        <td> 
+
+            <img th:src="@{'https://openweathermap.org/img/wn/' + *{icon} + '@2x.png'}"></td>
+
+        <td>
+            <h3>Main: <span th:text="*{main}"></span></h3>
+           <h3>Description: <span th:text="*{description}"></span></h3> 
+           <h3>Longitude: <span th:text="*{lon}"></span></h3>
+           <h3>Latitude: <span th:text="*{lat}"></span></h3>
+        </td>
+       
+    </tr>
+    <tr>
+        <td><h2>More info:</h2> </td>
+        <td>
+            <h3>Temp: <span th:text="*{temp}"></span></h3>
+           <h3>Feels Like: <span th:text="*{feelsLike}"></span></h3> 
+           <h3>Min: <span th:text="*{tempMin}"></span></h3> 
+           <h3>Max: <span th:text="*{tempMax}"></span></h3> 
+           <h3>Pressure: <span th:text="*{pressure}"></span></h3> 
+           <h3>Humidity: <span th:text="*{humidity}"></span></h3> 
+        </td>
+    </tr>
+    <a href="/" >Go back</a>
+    </table>
+</body>
+</html>
+
+
+
+    
+    <!-- <h1>Today's weather</h1>
+    <table>
+        <h1>Weather for <code th:text="${city}"></code></h1>
+
+        <div  th:if="${#lists.isEmpty(weatherList)}">
+           <h2>Cannot get weather for your fictional city</h2>
+        </div>
+  
+        <div>
+            <a href="/" >Go back</a>
+        </div>
+  
+        <div  th:unless="${#lists.isEmpty(weatherList)}">
+           <div  th:each="w: ${weatherList}">
+              <table>
+                 <tr>
+                    <td>
+                        <img th:src="@{'https://openweathermap.org/img/wn/' + ${w.icon} + '@2x.png'}">                    </td>
+                    <td>
+                       <span   th:text="${w.main}"></span>
+                       <span  th:text="${w.description}"></span>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <h3>Main: <span th:text="${w.main}"></span></h3>
+                       <h3>Description: <span th:text="${w.description}"></span></h3> 
+                       <h3>Longitude: <span th:text="${w.len}"></span></h3>
+                       <h3>Latitude: <span th:text="${w.lat}"></span></h3>
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <td><h2>More info:</h2> </td>
+                    <td>
+                        <h3>Temp: <span th:text="${w.temp}"></span></h3>
+                       <h3>Feels Like: <span th:text="${w.feelsLike}"></span></h3> 
+                       <h3>Min: <span th:text="${w.tempMin}"></span></h3> 
+                       <h3>Max: <span th:text="${w.tempMax}"></span></h3> 
+                       <h3>Pressure: <span th:text="${w.pressure}"></span></h3> 
+                       <h3>Humidity: <span th:text="${w.humidity}"></span></h3> 
+                    </td>
+                </tr>
+              </table>
+           </div>
+        </div>
+     
+
+    </table>
+</body>
+</html> -->
